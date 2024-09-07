@@ -2,7 +2,7 @@ const baseUrl = 'https://esp32-light-control.vercel.app';
 const lights = ['light1', 'light2', 'light3'];
 
 async function fetchStatus() {
-    const response = await fetch(`${baseUrl}/status.json`);
+    const response = await fetch(`${baseUrl}/pin`);
     return await response.json();
 }
 
