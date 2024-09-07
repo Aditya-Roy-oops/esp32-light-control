@@ -1,0 +1,16 @@
+{
+    "name": "e32lc",
+    "version": "1.0.0",
+    "description": "A project for light control using Vercel serverless functions",
+    "main": "index.js",
+    "scripts": {
+      "dev": "vercel dev",
+      "build": "vercel build",
+      "start": "vercel start"
+    },
+    "dependencies": {
+      "fs": "0.0.1-security",
+      "path": "^0.12.7"
+    }
+  }
+  
