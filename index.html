@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Control</title>
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        #lights {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        #lights div {
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            width: 150px;
+        }
+        
+        span {
+            font-weight: bold;
+        }
+        
+    </style>>
+</head>
+<body>
+    <h1>Light Control Status</h1>
+    <div id="lights">
+        <div id="light1">Light 1: <span id="status1">Loading...</span></div>
+        <div id="light2">Light 2: <span id="status2">Loading...</span></div>
+        <div id="light3">Light 3: <span id="status3">Loading...</span></div>
+    </div>
+</body>
+</html>

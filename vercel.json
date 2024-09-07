@@ -1,0 +1,6 @@
+{
+    "routes": [
+        { "src": "/pin/action=on", "dest": "/api/action.js?state=on" },
+        { "src": "/pin/action=off", "dest": "/api/action.js?state=off" }
+    ]
+}
