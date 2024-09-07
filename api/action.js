@@ -1,16 +1,21 @@
-const fs = require('fs');
-const path = require('path');
+const status = {
+    light1: false,
+    light2: false,
+    light3: false
+};
 
 export default async function handler(req, res) {
-    const { state } = req.query;
-    const statusPath = path.resolve('./status.json');
-    let status = JSON.parse(fs.readFileSync(statusPath, 'utf-8'));
+    const { light1, light2, light3 } = req.query;
 
-    for (let light in status) {
-        status[light] = (state === 'on');
+    if (light1 !== undefined) {
+        status.light1 = light1 === 'on';
+    }
+    if (light2 !== undefined) {
+        status.light2 = light2 === 'on';
+    }
+    if (light3 !== undefined) {
+        status.light3 = light3 === 'on';
     }
 
-    fs.writeFileSync(statusPath, JSON.stringify(status, null, 2));
-    res.writeHead(302, { Location: '/' });
-    res.end();
+    res.json(status);
 }
