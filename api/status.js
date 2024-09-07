@@ -1,30 +1,32 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
 
+// Path to the JSON file
 const statusFilePath = path.join(process.cwd(), 'light_status.json');
 
 export default async function handler(req, res) {
-  const { method, query } = req;
-
-  if (method === 'GET') {
+  if (req.method === 'GET') {
     try {
-      let status = JSON.parse(readFileSync(statusFilePath, 'utf8'));
+      // Read the status from the JSON file
+      let status = JSON.parse(await fs.readFile(statusFilePath, 'utf8'));
 
-      if (query.pin && query.action) {
-        const { pin, action } = query;
+      if (req.query.pin && req.query.action) {
+        const { pin, action } = req.query;
 
+        // Validate the pin and action
         if ((pin === 'light1' || pin === 'light2') && (action === 'on' || action === 'off')) {
-          status[pin] = action;
-          writeFileSync(statusFilePath, JSON.stringify(status));
+          status[pin] = action; // Update the status
+          await fs.writeFile(statusFilePath, JSON.stringify(status, null, 2)); // Save the updated status
         }
       }
 
+      // Return the current status in JSON format
       res.status(200).json(status);
     } catch (error) {
       res.status(500).json({ error: 'Failed to read or write the status file.' });
     }
   } else {
     res.setHeader('Allow', ['GET']);
-    res.status(405).end(`Method ${method} Not Allowed`);
+    res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
