@@ -1,4 +1,4 @@
-const baseUrl = 'https://e32lc.vercel.app';
+const baseUrl = 'https://esp32-light-control.vercel.app';
 const lights = ['light1', 'light2', 'light3'];
 
 async function fetchStatus() {
