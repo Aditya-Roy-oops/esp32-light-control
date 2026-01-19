@@ -50,24 +50,6 @@ This project uses an ESP32 microcontroller connected to relays and a cloud-hoste
 
 ---
 
-## 📂 Project Structure
-
-```
-ESP-IOT-SMART-SWITCH/
-│
-├── esp32_code/
-│   └── smart_switch.ino
-│
-├── web/
-│   ├── controller.html
-│   ├── script.js
-│   └── style.css
-│
-└── README.md
-```
-
----
-
 ## 🛠️ Setup & Installation
 
 ### Step 1: Download the Project Code
