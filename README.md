@@ -54,12 +54,7 @@ This project uses an ESP32 microcontroller connected to relays and a cloud-hoste
 
 ### Step 1: Download the Project Code
 
-Clone or download this repository:
-
-```
-git clone https://github.com/yourusername/esp-iot-smart-switch.git
-cd esp-iot-smart-switch
-```
+Clone or download this repository
 
 ---
 
